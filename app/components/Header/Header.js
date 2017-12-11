@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { TouchableHighlight, View, Text } from 'react-native';
-import { Header, colors } from 'react-native-elements';
-import { Icon } from 'react-native-elements';
+import { View, Text } from 'react-native';
+import { Header, Icon } from 'react-native-elements';
 import {iconType} from '../../utils/const';
 
 const ConditionHeader = () => (
