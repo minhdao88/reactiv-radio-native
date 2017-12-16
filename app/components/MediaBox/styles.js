@@ -3,7 +3,10 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    padding: 10
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingTop: 20,
+    paddingBottom: 20
   },
   info: {
     flexDirection: 'row',
@@ -12,14 +15,5 @@ export default StyleSheet.create({
   },
   posted: {
     marginLeft: 'auto'
-  },
-  photo: {
-
-  },
-  audio: {
-
-  },
-  video: {
-
   }
 });

@@ -1,37 +1,27 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
-import { Header, Icon } from 'react-native-elements';
+import { NavigationBar, Button } from '@shoutem/ui';
 import {iconType} from '../../utils/const';
+import Icon from "react-native-vector-icons/Ionicons";
+import styles from './styles';
 
-const ConditionHeader = () => (
-  <Header
-    outerContainerStyles={{backgroundColor: "#fff"}}
-    rightComponent={
-      <RightNav
-        onSearchPress={() => {}}
-        onMenuPress={() => {}}
-      />
-    }
-  />
+
+const NavHeader = () => (
+  <View style={styles.container}>
+    <NavNonLogin/>
+  </View>
 );
 
-const RightNav = ({onSearchPress, onMenuPress}) => (
+const NavNonLogin = ({onSearchPress, onMenuPress}) => (
   <View style={{flexDirection: 'row'}}>
-    <Icon
-      type={iconType}
-      name="ios-search"
-      color="#ccc"
-      onPress={onSearchPress}
-    />
-    <Icon
-      type={iconType}
-      name="ios-menu"
-      color="#ccc"
-      containerStyle={{paddingLeft: 20}}
-      onPress={onMenuPress}
-    />
+    <Button onPress={onSearchPress}>
+    < Icon name="ios-search-outline" size={25}/>
+    </Button>
+    <Button onPress={onMenuPress}>
+      <Icon name="ios-menu-outline" size={25}/>
+    </Button>
   </View>
 )
 
 
-export default ConditionHeader;
+export default NavHeader;

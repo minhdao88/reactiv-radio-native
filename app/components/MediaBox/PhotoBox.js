@@ -6,10 +6,11 @@ import baseStyles from '../../styles/base';
 
 const PhotoBox = () => (
   <View
-    style={baseStyles.container}
   >
     <Image
-      style={[baseStyles.image, {resizeMode: 'cover'}]}
+      style={{
+        width: "100%",
+      }}
       source={require('../../../public/images/chaplet.jpg')}
     />
   </View>
