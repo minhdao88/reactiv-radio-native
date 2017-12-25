@@ -7,11 +7,13 @@ export const formStyles = StyleSheet.flatten({
     justifyContent: 'center'
   },
   input: {
-    marginBottom: 20
+    marginBottom: 20,
+    borderRadius: 2
   },
   button: {
     height: 60,
-    backgroundColor: '#cc3458'
+    backgroundColor: '#cc3458',
+    borderRadius: 2
   },
   buttonText: {
     color: '#fff'

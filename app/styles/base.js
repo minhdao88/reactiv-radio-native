@@ -25,5 +25,12 @@ export default StyleSheet.create({
   },
   image: {
     flex: 1
+  },
+  borderRadius: {
+    borderRadius: 2
+  },
+  scrollContainer: {
+    marginBottom: 60,
+    backgroundColor: '#fff'
   }
 });

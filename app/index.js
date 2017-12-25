@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { HomePage } from './config/router';
+import AppNavigator from './config/router';
 
-const App = () => {
-  return <HomePage />;
-};
+const App = () => (
+  <AppNavigator />
+);
 
 export default App;

@@ -5,3 +5,9 @@ export const mediaType = {
   audio: 2,
   video: 3
 };
+
+export const navigationNames = {
+  home: 'Home',
+  artistRegister: 'ArtistRegister',
+  fanRegister: 'FanRegister'
+}

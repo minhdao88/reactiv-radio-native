@@ -7,16 +7,13 @@ import {
   StyleSheet,
   Dimensions
 } from "react-native";
-import Header from "../components/Header";
-import Player from "../components/Player";
-import { Button } from "react-native-elements";
+import BaseScrollLayout from "./BaseScrollLayout";
 import MediaBox from "../components/MediaBox";
+import { Button } from "react-native-elements";
 import { mediaType } from "../utils/const";
-import baseStyles from '../styles/base';
-import { Actions } from 'react-native-router-flux';
+import baseStyles from "../styles/base";
 
-
-const HomeBanner = () => (
+const HomeBanner = ({ onArtistRegsiterClick, onFanRegsiterClick }) => (
   <View style={screenStyles.bannerContainer}>
     <View style={screenStyles.bannerBackgroundContainer}>
       <Image
@@ -29,19 +26,17 @@ const HomeBanner = () => (
         source={require("../../public/images/reactiv.png")}
         style={screenStyles.bannerTextImg}
       />
-      <Text style={screenStyles.bannerText}>
-        DISCOVER.LOCAL.WORLDWIDE
-      </Text>
+      <Text style={screenStyles.bannerText}>DISCOVER.LOCAL.WORLDWIDE</Text>
       <View style={screenStyles.bannerButtonContainer}>
         <Button
           buttonStyle={screenStyles.bannerButton}
-          onPress={() => Actions.artistRegister()}
           title="ARTIST SIGN UP"
+          onPress={onArtistRegsiterClick}
         />
         <Button
           buttonStyle={screenStyles.bannerButton}
-          onPress={() => Actions.fanRegister()}
           title="FAN SIGN UP"
+          onPress={onArtistRegsiterClick}
         />
       </View>
     </View>
@@ -49,18 +44,24 @@ const HomeBanner = () => (
 );
 
 class HomeScreen extends Component {
+  handleArtistRegisterClick = () => {
+    this.props.navigation.navigate("ArtistRegister");
+  };
+  handleFanRegisterClick = () => {
+    this.props.navigation.navigate("FanRegsiter");
+  };
   render() {
     return (
-      <View style={baseStyles.container}>
-        <ScrollView style={screenStyles.scrollContainer}>
-          <HomeBanner />
-          <MediaBox type={mediaType.photo} />
-          <MediaBox type={mediaType.audio} />
-          <MediaBox />
-          <MediaBox />
-        </ScrollView>
-        <Player />
-      </View>
+      <BaseScrollLayout>
+        <HomeBanner
+          onArtistRegsiterClick={this.handleArtistRegisterClick}
+          onFanRegisterClick={this.handleFanRegisterClick}
+        />
+        <MediaBox type={mediaType.photo} />
+        <MediaBox type={mediaType.audio} />
+        <MediaBox />
+        <MediaBox />
+      </BaseScrollLayout>
     );
   }
 }

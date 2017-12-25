@@ -7,12 +7,12 @@ import styles from './styles';
 
 
 const NavHeader = () => (
-  <View style={styles.container}>
-    <NavNonLogin/>
+  <View >
+    <NavNonLogin />
   </View>
 );
 
-const NavNonLogin = ({onSearchPress, onMenuPress}) => (
+export const NavNonLogin = ({onSearchPress, onMenuPress}) => (
   <View style={{flexDirection: 'row'}}>
     <Button onPress={onSearchPress}>
     < Icon name="ios-search-outline" size={25}/>
@@ -21,7 +21,5 @@ const NavNonLogin = ({onSearchPress, onMenuPress}) => (
       <Icon name="ios-menu-outline" size={25}/>
     </Button>
   </View>
-)
+);
 
-
-export default NavHeader;

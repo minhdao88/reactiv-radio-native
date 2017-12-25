@@ -12,6 +12,9 @@ import baseStyles from '../styles/base';
 
 
 class ArtistRegisterScreen extends Component {
+  static navigationOptions = ({ navigation }) => ({
+    title: 'Artist Register',
+  });
   render() {
     return (
       <View style={baseStyles.container}>

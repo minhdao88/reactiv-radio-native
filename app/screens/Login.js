@@ -1,32 +1,23 @@
 import React, { Component } from "react";
-import {
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  Dimensions,
-} from "react-native";
-import Header from "../components/Header";
+import { View, Text, Image, StyleSheet, Dimensions, Alert } from "react-native";
 import LoginForm from "../components/Forms/LoginForm";
-import baseStyles from '../styles/base';
+import baseStyles from "../styles/base";
 
 
 class LoginScreen extends Component {
+  static navigationOptions = ({ navigation }) => ({
+    title: "Login"
+  });
+  handleOnSubmit = () => {
+    this.props.navigation.navigate("Dashboard");
+  };
   render() {
     return (
       <View style={baseStyles.container}>
-        <Header />
-        <LoginForm/>
+        <LoginForm onSubmit={this.handleOnSubmit} />
       </View>
-    )
+    );
   }
 }
-
-const screenStyles = StyleSheet.create({
-  container: {
-    marginTop: 70,
-    marginBottom: 60
-  },
-});
 
 export default LoginScreen;

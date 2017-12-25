@@ -6,12 +6,14 @@ import {
   StyleSheet,
   Dimensions,
 } from "react-native";
-import Header from "../components/Header";
 import FanRegisterForm from "../components/Forms/FanRegisterForm";
 import baseStyles from '../styles/base';
 
 
 class FanRegisterScreen extends Component {
+  static navigationOptions = ({ navigation }) => ({
+    title: 'Fan Register',
+  });
   render() {
     return (
       <View style={baseStyles.container}>
