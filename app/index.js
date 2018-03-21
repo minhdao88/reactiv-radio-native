@@ -15,6 +15,4 @@ const App = () => (
   </Provider>
 );
 
-AppRegistry.registerComponent('ReactivRadio', () => App);
-
 export default App;

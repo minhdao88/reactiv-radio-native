@@ -1,18 +1,38 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Text, Dimensions, Image } from "react-native";
+import { Animated, StyleSheet, View, Text, Dimensions, Image } from "react-native";
 import baseStyles from "../../styles/base";
 import { Button, TextInput } from "@shoutem/ui";
+import { connect } from "react-redux";
+import { createAnimatableComponent, View as AnimatedView } from 'react-native-animatable';
 
 class UploadModal extends Component {
+  state = {
+    visible: false,
+    top: new Animated.Value(Dimensions.get("window").height),
+  };
+  slideIn = () => {
+    Animated.timing(this.state.top, {
+      toValue: 0,
+      duration: 300
+    }).start();
+  };
+  slideOut = () => {
+    Animated.timing(this.state.top, {
+      toValue: Dimensions.get("window").height,
+      duration: 300
+    }).start();
+  }
   render() {
     const { show } = this.props;
+    if (show) {
+      this.slideIn();
+    } else {
+      this.slideOut();
+    }
+    const top = {top: this.state.top};
     return (
-      <View
-        style={styles.container}
-      >
-        <View
-          style={styles.publishContainer}
-        >
+      <Animated.View style={[styles.container, top]}>
+        <View style={styles.publishContainer}>
           <Button
             style={{
               height: 40,
@@ -22,9 +42,7 @@ class UploadModal extends Component {
               borderRadius: 4
             }}
           >
-            <Text style={styles.publishText}>
-              Publish
-            </Text>
+            <Text style={styles.publishText}>Publish</Text>
           </Button>
         </View>
         <View>
@@ -37,16 +55,15 @@ class UploadModal extends Component {
           <TextInput placeholder="Add a tittle" />
           <TextInput placeholder="Describe your photo" />
         </View>
-      </View>
+      </Animated.View>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    position: 'absolute',
+    position: "absolute",
     left: 0,
-    top: 0,
     width: "100%",
     height: "100%"
   },
@@ -64,7 +81,12 @@ const styles = StyleSheet.create({
     width: "100%",
     height: Dimensions.get("window").height - 285
   },
-  uploadForm: {}
 });
 
-export default UploadModal;
+const mapProps = state => {
+  return {
+    show: state.modal.show_upload
+  };
+};
+
+export default connect(mapProps)(UploadModal);

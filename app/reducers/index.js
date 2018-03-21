@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import NavReducer from './nav';
+import nav from './nav';
+import modal from './modal';
 
 const AppReducer = combineReducers({
-  nav: NavReducer,
+  nav,
+  modal
 });
 
 export default AppReducer;

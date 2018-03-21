@@ -11,9 +11,9 @@ import LoginScreen from "../screens/Login";
 import Dashboard from "../screens/Dashboard";
 import {
   NavNonLogin,
-  NavAuth,
   NavAuthUserAvatar
 } from "../components/Header/Header";
+import NavAuth from '../components/Header/AuthHeader';
 import Icon from "react-native-vector-icons/Ionicons";
 
 
