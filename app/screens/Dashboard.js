@@ -7,7 +7,7 @@ import {
   StyleSheet,
   Dimensions
 } from "react-native";
-import BaseScrollLayout from "./BaseScrollLayout";
+import BaseAuthLayout from "./BaseAuthLayout";
 import MediaBox from "../components/MediaBox";
 import { Button } from "react-native-elements";
 import { mediaType } from "../utils/const";
@@ -17,12 +17,12 @@ import baseStyles from "../styles/base";
 class Dashboard extends Component {
   render() {
     return (
-      <BaseScrollLayout>
+      <BaseAuthLayout>
         <MediaBox type={mediaType.photo} />
         <MediaBox type={mediaType.audio} />
         <MediaBox />
         <MediaBox />
-      </BaseScrollLayout>
+      </BaseAuthLayout>
     );
   }
 }

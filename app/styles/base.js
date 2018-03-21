@@ -20,6 +20,9 @@ export default StyleSheet.create({
   colorLighterGray: {
     color: "#f0f0f0"
   },
+  colorWhite:  {
+    color: "#ffffff"
+  },
   textSmall: {
     fontSize: 12
   },
