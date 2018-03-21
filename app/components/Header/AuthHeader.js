@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { View, Text, Image, Platform } from "react-native";
+
 import { Button } from "@shoutem/ui";
 import { iconType } from "../../utils/const";
 import Icon from "react-native-vector-icons/Ionicons";

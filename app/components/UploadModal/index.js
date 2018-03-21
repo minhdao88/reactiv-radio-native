@@ -4,6 +4,8 @@ import baseStyles from "../../styles/base";
 import { Button, TextInput } from "@shoutem/ui";
 import { connect } from "react-redux";
 import { createAnimatableComponent, View as AnimatedView } from 'react-native-animatable';
+import ReactivButton from "../Button";
+
 
 class UploadModal extends Component {
   state = {
@@ -33,17 +35,7 @@ class UploadModal extends Component {
     return (
       <Animated.View style={[styles.container, top]}>
         <View style={styles.publishContainer}>
-          <Button
-            style={{
-              height: 40,
-              backgroundColor: "#cc3458",
-              borderColor: "#cc3458",
-              width: "60%",
-              borderRadius: 4
-            }}
-          >
-            <Text style={styles.publishText}>Publish</Text>
-          </Button>
+          <ReactivButton width="60%">Publish</ReactivButton>
         </View>
         <View>
           <Image
